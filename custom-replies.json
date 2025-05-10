@@ -1,0 +1,10 @@
+[
+    
+      {
+        "trigger": "\\b(milady|remilia)\\b",
+        "responses": [
+          "milady"
+        ]
+      }
+  ]
+  

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>jaiden.ai</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="background-blur"></div>
+
+  <div id="auth-screen" class="centered">
+    <div class="auth-box">
+      <h2 id="auth-title">Login</h2>
+      <input type="text" id="auth-username" placeholder="Username (sign up only)" class="hidden" />
+      <input type="email" id="auth-email" placeholder="Email" />
+      <input type="password" id="auth-password" placeholder="Password" />
+      <button id="auth-submit">Continue</button>
+      <p id="auth-toggle">Don't have an account? <span class="link">Sign up</span></p>
+      <p id="auth-error" class="error"></p>
+    </div>
+  </div>
+
+  <main class="chat-container hidden">
+    <div class="chat-header">
+      <div id="username-display"></div>
+      <div id="xp-display"></div>
+    </div>
+
+    <div id="level-bar-container">
+      <div id="level-bar"></div>
+    </div>    
+
+    <div id="chat-box"></div>
+
+    <div class="input-container">
+      <input id="user-input" type="text" placeholder="Speak with me." autocomplete="off" />
+      <button id="sendBtn">↑</button>
+    </div>
+  </main>
+
+  <script src="chatbot.js" type="module"></script>
+</body>
+</html>
