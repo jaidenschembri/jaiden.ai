@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 
 :root {
-  --bg: linear-gradient(145deg, #0c0f1c, #1b1231);
+  --bg: radial-gradient(ellipse at center, #0d0d1f 0%, #000 100%);
   --bubble-user: #1d1f2e;
   --bubble-bot: rgba(255, 255, 255, 0.05);
   --accent: #d084ff;
   --text: #e8e6f9;
   --placeholder: #7f7f99;
-  --blur: blur(60px);
 }
 
 * {
@@ -19,19 +18,8 @@
 html, body {
   height: 100%;
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
   color: var(--text);
   overflow: hidden;
-}
-
-#background-blur {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: url('assets/bg.jpg') no-repeat center center / cover;
-  filter: var(--blur);
-  z-index: 0;
-  opacity: 0.25;
 }
 
 .chat-container {
@@ -66,8 +54,9 @@ html, body {
   word-wrap: break-word;
   backdrop-filter: blur(10px);
   font-size: 1rem;
+  overflow: visible;
+  display: block; /* Use block, not flex, for pure text flow */
   position: relative;
-  overflow: hidden;
 }
 
 .user {
@@ -227,4 +216,23 @@ html, body {
   color: var(--accent);
   cursor: pointer;
   text-decoration: underline;
+}
+
+.user span,
+.bot span,
+.jaiden span {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+  width: 100%;
+}
+
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000 100%);
 }

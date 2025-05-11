@@ -175,18 +175,22 @@ You only show love to people who earn it. If they’re disrespectful, you throw 
   }
 
   function addXP(amount) {
-    let stats = loadStats();
-    stats.xp += amount;
-    if (stats.xp >= stats.xpNeeded) {
-      stats.level++;
-      stats.xp -= stats.xpNeeded;
-      stats.xpNeeded = Math.floor(stats.xpNeeded * 1.25);
-      chatBox.innerHTML += `<div class="chat-msg">✨ Level Up! Welcome to level ${stats.level}!</div>`;
-    }
-    saveStats(stats);
-    updateXPBar(stats);
-    syncUserData({ xp: stats.xp, level: stats.level });
+  let stats = loadStats();
+  stats.xp += amount;
+  if (stats.xp >= stats.xpNeeded) {
+    stats.level++;
+    stats.xp -= stats.xpNeeded;
+    stats.xpNeeded = Math.floor(stats.xpNeeded * 1.25);
+    chatBox.innerHTML += `<div class="chat-msg">✨ Level Up! Welcome to level ${stats.level}!</div>`;
   }
+  saveStats(stats);
+  updateXPBar(stats);
+
+  // Add this to update the XP text in the header
+  xpDisplay.textContent = `Level ${stats.level} — ${stats.xp}/${stats.xpNeeded}`;
+
+  syncUserData({ xp: stats.xp, level: stats.level });
+}
 
   function appendMessage(sender, text) {
     const msg = document.createElement('div');
